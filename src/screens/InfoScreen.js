@@ -1,40 +1,45 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import { CostEffectiveRestaurants,ExpensiveLuxuriousRestaurants,MediumPricingRestaurants } from '../../data/ListContents';
+import BottomTabNavigator from '../../components/BottomTabNavigator';
 
-const InfoScreen = ({navigation}) => {
-    const id = navigation.getParam('id');
+const InfoScreen = (props) => {
+    const item = props.navigation.getParam('objectTransfer');
     const [result, setResult] = useState([]);
+    console.log(props);
 
-    const getResult = (id_recieved) => {
-        if(id_recieved != null){
-            for(let i=0; i<CostEffectiveRestaurants.length;i++)
-                if(CostEffectiveRestaurants[i].res_id===id_recieved){
-                    subImages = CostEffectiveRestaurants[i].image_url;
-                }
-        }  
-        setResult(subImages);
-    };
-
-    useEffect (() => {
-        getResult(id);
-    }, []);
-
-    return(
-        <View>
-           <Text>InfoScreen</Text>
+   return (
+       <View style = {styles.pageStyle}>
            <Image
-            style = {styles.subImagesStyle}
-            source = {{uri: result}}
-            />
-        </View>
-    );
+           style = {styles.coverImageStyle}
+           source = {{uri: item.photos_url.coverPhoto}} 
+           />
+           <Image
+           style = {styles.logoImageStyle}
+           source = {{uri: item.photos_url.logo}} 
+           />
+           <BottomTabNavigator/>
+       </View>
+   );
 }
 
 const styles = StyleSheet.create({
-    subImagesStyle: {
-        height: 120,
-        width: 200,
+    pageStyle: {
+    },
+    coverImageStyle: {
+        maxWidth: '100%',
+        height: '35%',
+    },
+    logoImageStyle: {
+        width: 100,
+        height: 100,
+        borderRadius: 200,
+        zIndex: 1,
+        borderWidth: 1,
+        borderColor: '#d3d3d3',
+        alignSelf: 'flex-end',
+        marginRight: 20,
+        transform: [{translateY: -30}],
     }
 });
 

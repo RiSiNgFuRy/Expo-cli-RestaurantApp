@@ -4,12 +4,16 @@ import ListAdapter from '../../components/ListAdapter';
 import SearchBar from '../../components/SearchBar';
 import {ExpensiveLuxuriousRestaurants, CostEffectiveRestaurants, MediumPricingRestaurants} from '../../data/ListContents'
 
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
     const [searchContent, setSearchContent] = useState('');
 
     return (
         /* ===<View style = {{flex: 1}}>*/
         <>   
+            <Button
+            title = "navBar"
+            onPress = {() => navigation.navigate('NavBar')}
+            />
             <SearchBar
             text = {searchContent}
             textChange = {newContent => setSearchContent(newContent)}

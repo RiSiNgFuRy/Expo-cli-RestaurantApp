@@ -15,7 +15,7 @@ const ListAdapter = (props) => {
             keyExtractor = {item => item.res_id}
             renderItem = {({item}) => {
                 return(
-                    <TouchableOpacity onPress = {() => {props.navigation.navigate('Info', {id: item.res_id})}}>
+                    <TouchableOpacity onPress = {() => {props.navigation.navigate('Info', {objectTransfer: item})}}>
                         <View style = {styles.cardbox}>
                             <Image
                             style = {styles.imageStyle}

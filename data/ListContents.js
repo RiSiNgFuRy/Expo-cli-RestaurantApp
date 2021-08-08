@@ -95,11 +95,13 @@ export const ExpensiveLuxuriousRestaurants = [
         res_rating: '5',
         reviews: '3432',
         image_url: 'https://www.elitetraveler.com/wp-content/uploads/2007/02/Alain-Ducasse-scaled.jpg',
-        photos_url: Array[
-            "https://www.onholdinc.com/mohblog/wp-content/uploads/2018/03/restaurant.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYLxhm3vim63BHNqRVEgZ29yYUv0KeiZQwIhRAgUHPxs1qDirXSF_UkzY6VDBrdN_8wLc&usqp=CAU",
-            "https://www.123bsc.com/wp-content/uploads/2019/07/noisy_restaurant.jpg"
-        ]
+        photos_url: 
+            {
+                coverPhoto: "https://www.frypangraphics.com/portfolio/shalimar/shalimar-restaurant-logo.jpg",
+                logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHNEnEQ3B_Ce1R60vZP-NzT26nameWSBlHqA&usqp=CAU",
+                extra: "https://www.123bsc.com/wp-content/uploads/2019/07/noisy_restaurant.jpg"
+            }
+        
     },
     {
         res_name: 'Blipzards',
